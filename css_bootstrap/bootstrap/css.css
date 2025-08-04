@@ -1,0 +1,22 @@
+
+:root{
+    --main-color: #524078;
+    --main-text: white
+}
+.my-nav{
+    background-color: var(--main-color);
+}
+.my-btn{
+    background-color: var(--main-color);
+    color: var(--main-text);
+}
+.my-nav a {
+    color: var(--main-text);
+}
+.my-content{
+    margin-top: 5%;
+}
+.my-sidebar{
+    border: 1px solid var(--main-color);
+
+}
