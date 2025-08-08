@@ -1,6 +1,6 @@
 package com.example.demo_jstl.repository;
 
-import com.example.demo_jstl.model.Student;
+import com.example.demo_jstl.entity.Student;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,5 +18,11 @@ public class StudentRepository implements IStudentRepository {
     public List<Student> findAll() {
         // keets nối DB
         return studentList;
+    }
+
+    @Override
+    public boolean add(Student student) {
+        studentList.add(student);
+        return true;
     }
 }

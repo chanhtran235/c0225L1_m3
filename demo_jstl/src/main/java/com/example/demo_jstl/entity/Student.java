@@ -1,4 +1,4 @@
-package com.example.demo_jstl.model;
+package com.example.demo_jstl.entity;
 
 public class Student {
     private int id;

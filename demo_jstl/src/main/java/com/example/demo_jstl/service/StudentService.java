@@ -1,6 +1,6 @@
 package com.example.demo_jstl.service;
 
-import com.example.demo_jstl.model.Student;
+import com.example.demo_jstl.entity.Student;
 import com.example.demo_jstl.repository.IStudentRepository;
 import com.example.demo_jstl.repository.StudentRepository;
 
@@ -11,5 +11,10 @@ public class StudentService implements IStudentService{
     @Override
     public List<Student> findAll() {
         return studentRepository.findAll();
+    }
+
+    @Override
+    public boolean add(Student student) {
+        return studentRepository.add(student);
     }
 }

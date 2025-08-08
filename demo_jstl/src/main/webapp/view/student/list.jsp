@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Home
-  Date: 8/6/2025
-  Time: 7:06 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,6 +9,8 @@
 <c:import url="../layout/header.jsp"/>
 <div>
     <h1>Danh sách sinh viên</h1>
+    <p>${param.mess}</p>
+    <a href="/students?action=add">Thêm mới</a>
     <table class="table table-dark table-striped">
         <tr>
             <th>STT</th>
