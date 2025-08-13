@@ -10,7 +10,7 @@
 <c:import url="../layout/header.jsp"/>
 <form action="/students?action=add" method="post">
     <h1>Thêm mới</h1>
-    <input name="id" placeholder="Nhập id"><br>
+<%--    <input name="id" placeholder="Nhập id"><br>--%>
     <input name="name" placeholder="Nhập tên"><br>
     <input name="gender" type="radio" value="true"> Nam
     <input name="gender" type="radio" value="false"> Nữ<br>

@@ -31,14 +31,13 @@ public class StudentController extends HttpServlet {
                 break;
             default:
                 showList(req,resp);
-
         }
-
 
     }
 
     private void showFormAdd(HttpServletRequest req, HttpServletResponse resp) {
         try {
+            // phải lấy dữ liệu  nêu cần gọi service
             req.getRequestDispatcher("/view/student/add.jsp").forward(req, resp);
         } catch (ServletException e) {
             throw new RuntimeException(e);
@@ -70,19 +69,19 @@ public class StudentController extends HttpServlet {
                 save(req,resp);
                 break;
             case "delete":
+
                 break;
             default:
         }
 
     }
 
-
     private void save(HttpServletRequest req, HttpServletResponse resp) {
-        int id = Integer.parseInt(req.getParameter("id"));
+//        int id = Integer.parseInt(req.getParameter("id"));
         String name = req.getParameter("name");
         boolean gender = Boolean.parseBoolean(req.getParameter("gender"));
         float score = Float.parseFloat(req.getParameter("score"));
-        Student student = new Student(id,name,gender,score);
+        Student student = new Student(name,gender,score);
         boolean isAddSuccess = studentService.add(student);
         String mess = "";
         if (isAddSuccess){
