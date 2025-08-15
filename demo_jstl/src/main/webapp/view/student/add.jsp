@@ -15,6 +15,12 @@
     <input name="gender" type="radio" value="true"> Nam
     <input name="gender" type="radio" value="false"> Nữ<br>
     <input name="score" placeholder="nhập điểm"><br>
+    <select name="classId">
+        <option>-------Chọn lớp-------</option>
+        <c:forEach items="${classList}" var="cls">
+            <option value="${cls.getId()}">${cls.getName()}</option>
+        </c:forEach>
+    </select>
     <button type="submit"> Lưu</button>
 </form>
 </body>

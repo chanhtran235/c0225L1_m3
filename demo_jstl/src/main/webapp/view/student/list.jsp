@@ -18,6 +18,7 @@
             <th>Giới tính</th>
             <th>Điểm</th>
             <th>Xếp loại</th>
+            <th>Lớp học</th>
             <th>Chỉnh sửa</th>
             <th>Xoá</th>
         </tr>
@@ -50,6 +51,7 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
+                <td>${student.getClassId()}</td>
                 <td>
                     <button class="btn btn-sm btn-primary">Chỉnh sửa</button>
                 </td>

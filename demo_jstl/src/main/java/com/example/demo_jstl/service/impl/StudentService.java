@@ -1,12 +1,13 @@
-package com.example.demo_jstl.service;
+package com.example.demo_jstl.service.impl;
 
 import com.example.demo_jstl.entity.Student;
 import com.example.demo_jstl.repository.IStudentRepository;
-import com.example.demo_jstl.repository.StudentRepository;
+import com.example.demo_jstl.repository.impl.StudentRepository;
+import com.example.demo_jstl.service.IStudentService;
 
 import java.util.List;
 
-public class StudentService implements IStudentService{
+public class StudentService implements IStudentService {
     private IStudentRepository studentRepository = new StudentRepository();
     @Override
     public List<Student> findAll() {
@@ -16,5 +17,10 @@ public class StudentService implements IStudentService{
     @Override
     public boolean add(Student student) {
         return studentRepository.add(student);
+    }
+
+    @Override
+    public boolean delete(int id) {
+        return studentRepository.delete(id);
     }
 }
