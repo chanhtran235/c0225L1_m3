@@ -1,5 +1,6 @@
 package com.example.demo_jstl.controller;
 
+import com.example.demo_jstl.dto.StudentDto;
 import com.example.demo_jstl.entity.Student;
 import com.example.demo_jstl.service.IClassesService;
 import com.example.demo_jstl.service.IStudentService;
@@ -51,7 +52,7 @@ public class StudentController extends HttpServlet {
     }
 
     private void showList(HttpServletRequest req, HttpServletResponse resp) {
-        List<Student> studentList = studentService.findAll();
+        List<StudentDto> studentList = studentService.findAll();
         req.setAttribute("studentList", studentList);
         try {
             req.getRequestDispatcher("/view/student/list.jsp").forward(req, resp);

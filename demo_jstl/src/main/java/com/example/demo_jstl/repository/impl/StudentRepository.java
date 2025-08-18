@@ -1,5 +1,6 @@
 package com.example.demo_jstl.repository.impl;
 
+import com.example.demo_jstl.dto.StudentDto;
 import com.example.demo_jstl.entity.Student;
 import com.example.demo_jstl.repository.BaseRepository;
 import com.example.demo_jstl.repository.IStudentRepository;
@@ -10,12 +11,12 @@ import java.util.List;
 
 public class StudentRepository implements IStudentRepository {
 
-    private final String SELECT_ALL = "select * from students;";
+    private final String SELECT_ALL = "select s.id,s.name,s.gender,s.score,c.name as class_name from students s join classes c on s.class_id=c.id;";
     private final String INSERT_INTO = "insert into students(name,gender,score,class_id) values(?,?,?,?);";
     private final String DELETE_BY_ID = "call delete_by_id(?);";
     @Override
-    public List<Student> findAll() {
-        List<Student> studentList = new ArrayList<>();
+    public List<StudentDto> findAll() {
+        List<StudentDto> studentList = new ArrayList<>();
         // keets nối DB
 
         try(Connection connection = BaseRepository.getConnectDB();) {
@@ -26,9 +27,8 @@ public class StudentRepository implements IStudentRepository {
                String name = resultSet.getString("name");
                boolean gender = resultSet.getBoolean("gender");
                float score = resultSet.getFloat("score");
-               int classId  = resultSet.getInt("class_id");
-               Student student = new Student(id,name,gender,score,classId);
-               studentList.add(student);
+               String className = resultSet.getString("class_name");
+               studentList.add(new StudentDto(id,name,gender,score,className));
            }
         } catch (SQLException e) {
             System.out.println("lỗi querry");

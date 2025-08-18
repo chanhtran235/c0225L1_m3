@@ -51,7 +51,7 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
-                <td>${student.getClassId()}</td>
+                <td>${student.getClassName()}</td>
                 <td>
                     <button class="btn btn-sm btn-primary">Chỉnh sửa</button>
                 </td>
