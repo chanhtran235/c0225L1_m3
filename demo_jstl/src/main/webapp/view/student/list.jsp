@@ -9,6 +9,17 @@
 <c:import url="../layout/header.jsp"/>
 <div>
     <h1>Danh sách sinh viên</h1>
+    <form action="/students" method="get">
+        <input hidden="hidden" name="action" value="search">
+        <input placeholder="nhập tên" name="searchName">
+        <select  id="classId" name="classId">
+            <option value="">-------Chọn lớp-------</option>
+            <c:forEach items="${classList}" var="cls">
+                <option value="${cls.id}">${cls.name}</option>
+            </c:forEach>
+        </select>
+        <button type="submit">Tìm kiếm</button>
+    </form>
     <p>${param.mess}</p>
     <a href="/students?action=add">Thêm mới</a>
     <table class="table table-dark table-striped">

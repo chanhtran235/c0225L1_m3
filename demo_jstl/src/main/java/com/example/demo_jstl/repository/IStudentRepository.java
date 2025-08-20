@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface IStudentRepository {
     List<StudentDto> findAll();
+    List<StudentDto> searchByNameAndClassId(String searchName, String id);
+    List<StudentDto> searchByName(String searchName);
     boolean add(Student student);
     boolean delete(int id);
 }

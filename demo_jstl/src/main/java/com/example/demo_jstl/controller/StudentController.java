@@ -31,11 +31,29 @@ public class StudentController extends HttpServlet {
             case "add":
                 showFormAdd(req, resp);
                 break;
-            case "delete":
+            case "search":
+                searchByNameAndClass(req,resp);
                 break;
             default:
                 showList(req, resp);
         }
+
+    }
+
+    private void searchByNameAndClass(HttpServletRequest req, HttpServletResponse resp) {
+        String searchName = req.getParameter("searchName");
+        String classId = req.getParameter("classId");
+        List<StudentDto> studentList = studentService.searchByNameAndClassId(searchName,classId);
+        req.setAttribute("studentList", studentList);
+        req.setAttribute("classList", classesService.findAll());
+        try {
+            req.getRequestDispatcher("/view/student/list.jsp").forward(req, resp);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
@@ -54,6 +72,7 @@ public class StudentController extends HttpServlet {
     private void showList(HttpServletRequest req, HttpServletResponse resp) {
         List<StudentDto> studentList = studentService.findAll();
         req.setAttribute("studentList", studentList);
+        req.setAttribute("classList", classesService.findAll());
         try {
             req.getRequestDispatcher("/view/student/list.jsp").forward(req, resp);
         } catch (ServletException e) {
